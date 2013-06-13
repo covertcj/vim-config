@@ -27,3 +27,18 @@ set autoindent
 set expandtab
 set softtabstop=2
 set shiftwidth=2
+set smarttab
+set shiftround
+
+" backspace should always work!
+set backspace=indent,eol,start
+
+" display row/column in status
+set ruler
+
+" search as you type
+set incsearch
+
+" make yank work from the cursor to line end
+nnoremap Y y$
+
