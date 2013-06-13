@@ -7,3 +7,7 @@ source ~/vimfiles/config/backup.vimrc
 source ~/vimfiles/config/buffer.vimrc
 source ~/vimfiles/config/font.vimrc
 source ~/vimfiles/config/gui.vimrc
+
+" allow usage of <C-t>f to open FuzzyFinder in the current dir
+nmap <C-t>f :FufFileWithCurrentBufferDir <CR>
+
