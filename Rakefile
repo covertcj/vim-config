@@ -1,17 +1,13 @@
+require 'os'
+
 task :reset   => [:clean, :install]
 task :clean   => [:remove_files]
 task :install => [:copy_files]
 
 task :copy_files do
-  osys = ENV['OS']
   home = ENV['HOME']
-  vimfiles = getVimfilesDir(osys)
-  vimrc    = getVimrcFile(osys)
-
-  if (vimfiles == nil) then
-    puts "Operating System '#{osys}' isn't supported."
-    return 1
-  end
+  vimfiles = getVimfilesDir()
+  vimrc    = getVimrcFile()
 
   FileUtils.mkdir_p "#{home}/#{vimfiles}"
   FileUtils.cp_r ['autoload', 'bundle', 'colors', 'config'], "#{home}/#{vimfiles}"
@@ -19,31 +15,21 @@ task :copy_files do
 end
 
 task :remove_files do
-  osys = ENV['OS']
   home = ENV['HOME']
-  vimfiles = getVimfilesDir(osys)
-  vimrc    = getVimrcFile(osys)
-
-  if (vimfiles == nil) then
-    puts "Operating System '#{osys}' isn't supported."
-    return 1
-  end
+  vimfiles = getVimfilesDir()
+  vimrc    = getVimrcFile()
 
   FileUtils.remove_dir "#{home}/#{vimfiles}"
   FileUtils.remove "#{home}/#{vimrc}"
 end
 
-def getVimfilesDir(osys)
-  if osys == 'Windows_NT' then
-    return 'vimfiles'
-  end
-
-  return nil
+def getVimfilesDir()
+  return '.vim' unless OS::Underlying.windows?
+  return 'vimfiles' 
 end
 
-def getVimrcFile(osys)
-  if osys == 'Windows_NT' then
-    return '_vimrc'
-  end
+def getVimrcFile()
+  return '.vimrc' unless OS::Underlying.windows?
+  return '_vimrc' 
 end
 
