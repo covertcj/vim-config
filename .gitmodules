@@ -7,3 +7,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/matrix"]
+	path = bundle/matrix
+	url = git://github.com/uguu-org/vim-matrix-screensaver
