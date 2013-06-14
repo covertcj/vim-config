@@ -10,3 +10,6 @@
 [submodule "bundle/matrix"]
 	path = bundle/matrix
 	url = git://github.com/uguu-org/vim-matrix-screensaver
+[submodule "bundle/unite"]
+	path = bundle/unite
+	url = git://github.com/Shougo/unite.vim.git
