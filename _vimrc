@@ -16,5 +16,5 @@ else
 endif
 
 " allow usage of <C-t>f to open FuzzyFinder in the current dir
-nmap <C-t>f :FufFileWithCurrentBufferDir <CR>
+" nmap <C-t>f :FufFileWithCurrentBufferDir <CR>
 
