@@ -16,4 +16,5 @@ else
 endif
 
 nnoremap <C-p> :Unite file_rec<cr>
+let NERDTreeChDirMode=1
 

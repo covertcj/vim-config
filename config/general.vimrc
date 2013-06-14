@@ -38,7 +38,10 @@ set ruler
 
 " search as you type
 set incsearch
+set hlsearch
+set smartcase
 
 " make yank work from the cursor to line end
 nnoremap Y y$
 
+set autochdir
