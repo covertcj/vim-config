@@ -15,6 +15,5 @@ else
 	source ~/.vim/config/gui.vimrc
 endif
 
-" allow usage of <C-t>f to open FuzzyFinder in the current dir
-" nmap <C-t>f :FufFileWithCurrentBufferDir <CR>
+nnoremap <C-p> :Unite file_rec<cr>
 
