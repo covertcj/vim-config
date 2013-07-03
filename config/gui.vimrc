@@ -5,10 +5,10 @@ if has("gui_running")
   set guioptions=
 
   " open up the nerd tree by default
-  if has("win32")
-    autocmd vimenter * NERDTree C:\
-  else
-    autocmd vimenter * NERDTree
-  endif
+  "if has("win32")
+  "  autocmd vimenter * NERDTree C:\
+  "else
+  "  autocmd vimenter * NERDTree
+  "endif
 endif
 
