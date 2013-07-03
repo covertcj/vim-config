@@ -42,6 +42,6 @@ set hlsearch
 set smartcase
 
 " make yank work from the cursor to line end
-nnoremap Y y$
+" nnoremap Y y$
 
-set autochdir
+" set autochdir
