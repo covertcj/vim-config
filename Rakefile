@@ -1,35 +1,30 @@
 require 'os'
+require 'fileutils'
 
-task :reset   => [:clean, :install]
-task :clean   => [:remove_files]
-task :install => [:copy_files]
+home  = ENV['HOME']
+vimrc = '_vimrc'
+vimrc = '.vimrc' unless OS::Underlying.windows?
+vimfiles = '.vim'
 
-task :copy_files do
-  home = ENV['HOME']
-  vimfiles = getVimfilesDir()
-  vimrc    = getVimrcFile()
+vimrc_target = "#{home}/#{vimrc}"
+vimrc_source = '.vimrc'
 
-  FileUtils.mkdir_p "#{home}/#{vimfiles}"
-  FileUtils.cp_r ['autoload', 'bundle', 'colors', 'config'], "#{home}/#{vimfiles}"
-  FileUtils.cp "_vimrc", "#{home}/#{vimrc}"
+zenburn_target = "#{home}/#{vimfiles}/colors/zenburn.vim"
+zenburn_source = '.vim/colors/zenburn.vim'
+
+file vimrc_target => [vimrc_source] do
+    cp(vimrc_source, vimrc_target)
 end
 
-task :remove_files do
-  home = ENV['HOME']
-  vimfiles = getVimfilesDir()
-  vimrc    = getVimrcFile()
-
-  FileUtils.remove_dir "#{home}/#{vimfiles}"
-  FileUtils.remove "#{home}/#{vimrc}"
+file zenburn_target => zenburn_source do
+    FileUtils.mkdir_p("#{home}/.vim/colors")
+    FileUtils.copy_file(zenburn_source, zenburn_target)
 end
 
-def getVimfilesDir()
-  return '.vim' unless OS::Underlying.windows?
-  return 'vimfiles' 
+desc 'Installs the vundle plugin from it\'s git repository.'
+task :clone_vundle do
+    `git clone https://github.com/gmarik/vundle.git "#{home}/#{vimfiles}/bundle/vundle"`
 end
 
-def getVimrcFile()
-  return '.vimrc' unless OS::Underlying.windows?
-  return '_vimrc' 
-end
+task :default => [zenburn_target, vimrc_target, :clone_vundle]
 
