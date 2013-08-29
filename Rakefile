@@ -9,16 +9,16 @@ vimfiles = '.vim'
 vimrc_target = "#{home}/#{vimrc}"
 vimrc_source = '.vimrc'
 
-zenburn_target = "#{home}/#{vimfiles}/colors/zenburn.vim"
-zenburn_source = '.vim/colors/zenburn.vim'
+colors_target = "#{home}/#{vimfiles}/colors/"
+colors_source = Dir.glob('.vim/colors/*.vim')
 
 file vimrc_target => [vimrc_source] do
     cp(vimrc_source, vimrc_target)
 end
 
-file zenburn_target => zenburn_source do
+file colors_target => colors_source do
     FileUtils.mkdir_p("#{home}/.vim/colors")
-    FileUtils.copy_file(zenburn_source, zenburn_target)
+    FileUtils.cp(colors_source, colors_target, :verbose => true)
 end
 
 desc 'Installs the vundle plugin from it\'s git repository.'
@@ -26,5 +26,5 @@ task :clone_vundle do
     `git clone https://github.com/gmarik/vundle.git "#{home}/#{vimfiles}/bundle/vundle"`
 end
 
-task :default => [zenburn_target, vimrc_target, :clone_vundle]
+task :default => [colors_target, vimrc_target, :clone_vundle]
 

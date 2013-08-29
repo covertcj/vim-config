@@ -38,7 +38,7 @@ if has('win32') || has('win64')
     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-colorscheme zenburn
+colorscheme vividchalk 
 
 " remove menus, toolbars, and scrollbars
 set guioptions-=m
@@ -77,7 +77,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
 
 " TernJS
-Bundle 'marijnh/tern_for_vim'
+"Bundle 'marijnh/tern_for_vim'
 
 " Syntastic
 Bundle 'scrooloose/syntastic'
