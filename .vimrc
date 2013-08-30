@@ -7,43 +7,11 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 runtime! plugin/sensible.vim
 
-set nocompatible "must be the first line
-filetype off
-
-" leader button setup
-let mapleader = ","
-set timeoutlen=2500
-
-" tab settings
-"set expandtab
-"set tabstop=4
-"set shiftwidth=4
-
-" syntax highlighting
-syntax on
-
-" allow backspacing anywhere
-set backspace=2
-
-" turn off annoying error sounds
-set noerrorbells 
-
-" set the unix shell
-if !(has('win16') || has('win32') || has('win64'))
-    set shell=/bin/bash
-endif
 
 " force windows to use the .vim directory instead of vimfiles
 if has('win32') || has('win64')
     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
-
-colorscheme jellybeans
-
-" remove menus, toolbars, and scrollbars
-set guioptions-=m
-set guioptions-=r
-set guioptions-=T
 
 
 """"""""""""""""""
@@ -60,6 +28,9 @@ nnoremap @pd :!p diff %
 "    Plugins    "
 """""""""""""""""
 
+
+" Custom Jellybeans Theme
+Bundle 'covertcj/jellybeans.vim'
 
 " Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
@@ -90,3 +61,44 @@ Bundle 'tpope/vim-surround'
 
 " sleuth.vim
 Bundle 'tpope/vim-sleuth'
+
+
+""""""""""""""""""
+"    Settings    "
+""""""""""""""""""
+
+filetype off
+
+" leader button setup
+let mapleader = ","
+set timeoutlen=2500
+
+" tab settings
+"set expandtab
+"set tabstop=4
+"set shiftwidth=4
+
+" syntax highlighting
+syntax on
+
+" allow backspacing anywhere
+set backspace=2
+
+" turn off annoying error sounds
+set noerrorbells 
+
+" set the unix shell
+if !(has('win16') || has('win32') || has('win64'))
+    set shell=/bin/bash
+endif
+
+" remove menus, toolbars, and scrollbars
+set guioptions-=m
+set guioptions-=r
+set guioptions-=T
+
+" avoid setting the color scheme before BundleInstall
+if filereadable($HOME . '/.vim/bundle/jellybeans.vim/colors/jellybeans.vim')
+    colorscheme jellybeans
+endif
+
