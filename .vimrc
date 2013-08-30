@@ -32,6 +32,14 @@ nnoremap @pd :!p diff %
 " Themes
 Bundle 'covertcj/jellybeans.vim'
 
+
+"Bundle 'marijnh/tern_for_vim'
+
+" Navigation {{{
+Bundle 'wikitopian/hardmode'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>'
 
@@ -43,8 +51,7 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
-
-"Bundle 'marijnh/tern_for_vim'
+" }}}
 
 Bundle 'scrooloose/syntastic'
 Bundle 'mattn/emmet-vim'
