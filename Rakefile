@@ -21,6 +21,7 @@ end
 
 desc 'Installs vim plugins using vundle.'
 task :vim_bundle_install => [vimrc_target, vundle_target] do
+    puts 'Running :BundleInstall...'
     `vim +BundleInstall +qall`
 end
 
