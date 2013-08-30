@@ -53,6 +53,11 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
 " }}}
 
+" Web Development {{{
+Bundle 'skammer/vim-css-color'
+Bundle 'groenewege/vim-less'
+" }}}
+
 Bundle 'scrooloose/syntastic'
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
