@@ -1,9 +1,8 @@
-require 'os'
 require 'fileutils'
 
 home  = ENV['HOME']
 vimrc = '_vimrc'
-vimrc = '.vimrc' unless OS::Underlying.windows?
+vimrc = '.vimrc' unless Rake::Win32.windows?
 vimfiles = '.vim'
 
 vundle_target = "#{home}/#{vimfiles}/bundle/vundle"
