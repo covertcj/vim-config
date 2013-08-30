@@ -29,38 +29,28 @@ nnoremap @pd :!p diff %
 """""""""""""""""
 
 
-" Custom Jellybeans Theme
+" Themes
 Bundle 'covertcj/jellybeans.vim'
 
-" Easy Motion
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>'
 
-" NERDTree
 Bundle 'scrooloose/nerdtree'
 map <f2> :NERDTreeToggle<cr>
 imap <f2> :NERDTreeToggle<cd>i
 
-" Ctrl P
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
 
-" TernJS
 "Bundle 'marijnh/tern_for_vim'
 
-" Syntastic
 Bundle 'scrooloose/syntastic'
-
-" Emmet
 Bundle 'mattn/emmet-vim'
-
-" Surround
 Bundle 'tpope/vim-surround'
-
-" sleuth.vim
 Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-repeat'
 
 
 """"""""""""""""""
