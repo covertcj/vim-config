@@ -51,6 +51,8 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
+
+Bundle 'tpope/vim-unimpaired'
 " }}}
 
 " Web Development {{{
@@ -59,6 +61,9 @@ Bundle 'groenewege/vim-less'
 " }}}
 
 Bundle 'scrooloose/syntastic'
+"map <F5> :lprev<CR>
+"map <F4> :lnext<CR>
+let g:syntastic_always_populate_loc_list = 1
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-sleuth'
@@ -93,6 +98,10 @@ set noerrorbells
 if !(has('win16') || has('win32') || has('win64'))
     set shell=/bin/bash
 endif
+
+" only do case sensitive search if capital letters are present
+set ignorecase
+set smartcase
 
 " remove menus, toolbars, and scrollbars
 set guioptions-=m
