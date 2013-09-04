@@ -1,9 +1,11 @@
 require 'fileutils'
 
 home  = ENV['HOME']
+
 vimfiles = '.vim'
-vimrc = '_vimrc'
-vimrc = '.vimrc' unless Rake::Win32.windows?
+
+vimrc_prefix = ((Rake::Win32.windows? && '_') || '.')
+vimrc = "#{vimrc_prefix}vimrc"
 
 vundle_target = "#{home}/#{vimfiles}/bundle/vundle"
 

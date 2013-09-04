@@ -76,9 +76,9 @@ let mapleader = ","
 set timeoutlen=2500
 
 " tab settings
-"set expandtab
-"set tabstop=4
-"set shiftwidth=4
+set expandtab
+set tabstop=4
+set shiftwidth=4
 
 " syntax highlighting
 syntax on
@@ -98,6 +98,9 @@ endif
 set guioptions-=m
 set guioptions-=r
 set guioptions-=T
+
+" line numbers
+:set number
 
 " avoid setting the color scheme before BundleInstall
 if filereadable($HOME . '/.vim/bundle/jellybeans.vim/colors/jellybeans.vim')
