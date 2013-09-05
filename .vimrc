@@ -55,10 +55,17 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
 Bundle 'tpope/vim-unimpaired'
 " }}}
 
+
 " Web Development {{{
 Bundle 'skammer/vim-css-color'
 Bundle 'groenewege/vim-less'
 " }}}
+
+
+" Windows Scripting {{{
+Bundle 'PProvost/vim-ps1'
+" }}}
+
 
 Bundle 'scrooloose/syntastic'
 "map <F5> :lprev<CR>
