@@ -62,6 +62,11 @@ Bundle 'groenewege/vim-less'
 " }}}
 
 
+" FSharp {{{
+Bundle 'kongo2002/fsharp-vim'
+" }}}
+
+
 " Windows Scripting {{{
 Bundle 'PProvost/vim-ps1'
 " }}}
