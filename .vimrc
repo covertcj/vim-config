@@ -35,6 +35,11 @@ Bundle 'covertcj/jellybeans.vim'
 
 "Bundle 'marijnh/tern_for_vim'
 
+" Go {{{
+set runtimepath+=$GOROOT/misc/vim
+" }}}
+
+
 " Navigation {{{
 Bundle 'wikitopian/hardmode'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
