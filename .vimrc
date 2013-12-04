@@ -31,6 +31,7 @@ nnoremap @pd :!p diff %
 
 " Themes
 Bundle 'covertcj/jellybeans.vim'
+Bundle 'covertcj/Zenburn'
 
 
 "Bundle 'marijnh/tern_for_vim'
@@ -129,7 +130,11 @@ set guioptions-=T
 :set number
 
 " avoid setting the color scheme before BundleInstall
-if filereadable($HOME . '/.vim/bundle/jellybeans.vim/colors/jellybeans.vim')
-    colorscheme jellybeans
+"if filereadable($HOME . '/.vim/bundle/jellybeans.vim/colors/jellybeans.vim')
+"    colorscheme jellybeans
+"endif
+
+if filereadable($HOME . '/.vim/bundle/zenburn/colors/zenburn.vim')
+    colorscheme zenburn
 endif
 
