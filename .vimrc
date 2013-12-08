@@ -78,6 +78,10 @@ Bundle 'PProvost/vim-ps1'
 " }}}
 
 
+" WAF Meta-Build System {{{
+au BufNewFile,BufRead wscript* set filetype=python
+" }}}
+
 Bundle 'scrooloose/syntastic'
 "map <F5> :lprev<CR>
 "map <F4> :lnext<CR>
