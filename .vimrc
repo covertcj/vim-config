@@ -36,6 +36,11 @@ Bundle 'covertcj/Zenburn'
 
 "Bundle 'marijnh/tern_for_vim'
 
+" CoffeeScript {{{
+Bundle 'yourcelf/vim-coffee-script'
+" }}}
+
+
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
 " }}}
