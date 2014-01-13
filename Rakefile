@@ -3,11 +3,12 @@ require 'fileutils'
 home  = ENV['HOME']
 
 vimfiles = '.vim'
+vimfiles_target = "#{home}/#{vimfiles}"
 
 vimrc_prefix = ((Rake::Win32.windows? && '_') || '.')
 vimrc = "#{vimrc_prefix}vimrc"
 
-vundle_target = "#{home}/#{vimfiles}/bundle/vundle"
+vundle_target = "#{vimfiles_target}/bundle/vundle"
 
 vimrc_target = "#{home}/#{vimrc}"
 vimrc_source = '.vimrc'
@@ -27,6 +28,43 @@ task :vim_bundle_install => [vimrc_target, vundle_target] do
     `vim +BundleInstall +qall`
 end
 
-task :vim_config => [vimrc_target, vundle_target, :vim_bundle_install]
+def system_is_dirty?(files)
+    needed = false
+    files.each { |f| needed ||= File.exists?(f) }
+    return needed
+end
+
+def ask_for_confirmation(files)
+    puts 'This is a destructive operation, and will remove the following files on your local system:'
+    files.each { |f| puts "\t#{f}" }
+
+    puts ''
+    print 'Enter \'yes\' to continue: '
+
+    answer = STDIN.gets.strip
+    unless answer == 'yes'
+        puts 'Cancelling...'
+        exit(1)
+    end
+end
+
+desc 'Removes your systems\'s vim configuration.'
+task :clean do
+    files = [
+        vimrc_target,
+        vimfiles_target
+    ]
+
+    if system_is_dirty?(files) then
+        ask_for_confirmation(files)
+
+        puts ''
+        files.each do |f|
+            FileUtils.rm_rf(f, :verbose => true)
+        end
+    end
+end
+
+task :vim_config => [:clean, vimrc_target, vundle_target, :vim_bundle_install]
 task :default => [:vim_config]
 
