@@ -32,12 +32,18 @@ nnoremap @pd :!p diff %
 " Themes
 Bundle 'covertcj/jellybeans.vim'
 Bundle 'covertcj/Zenburn'
+Bundle 'covertcj/vim-colors-solarized'
 
 
 "Bundle 'marijnh/tern_for_vim'
 
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
+" }}}
+
+
+" Coffee Script {{{
+Bundle 'kchmck/vim-coffee-script'
 " }}}
 
 
@@ -130,11 +136,11 @@ set guioptions-=T
 :set number
 
 " avoid setting the color scheme before BundleInstall
-"if filereadable($HOME . '/.vim/bundle/jellybeans.vim/colors/jellybeans.vim')
-"    colorscheme jellybeans
-"endif
-
 if filereadable($HOME . '/.vim/bundle/zenburn/colors/zenburn.vim')
-    colorscheme zenburn
+    " colorscheme zenburn
+    " colorscheme jellybeans
+
+    set background=light
+    colorscheme solarized
 endif
 
