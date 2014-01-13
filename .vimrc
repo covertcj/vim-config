@@ -37,6 +37,11 @@ Bundle 'covertcj/vim-colors-solarized'
 
 "Bundle 'marijnh/tern_for_vim'
 
+" CoffeeScript {{{
+Bundle 'yourcelf/vim-coffee-script'
+" }}}
+
+
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
 " }}}
@@ -83,6 +88,10 @@ Bundle 'kongo2002/fsharp-vim'
 Bundle 'PProvost/vim-ps1'
 " }}}
 
+
+" WAF Meta-Build System {{{
+au BufNewFile,BufRead wscript* set filetype=python
+" }}}
 
 Bundle 'scrooloose/syntastic'
 "map <F5> :lprev<CR>
