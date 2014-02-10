@@ -117,6 +117,11 @@ Bundle 'tpope/vim-repeat'
 "    Settings    "
 """"""""""""""""""
 
+" ingore files in 'build' or 'bin' directories
+" this was added for ctrl-p support, if it becomes annoying, ctrl-p supports
+" a custom ignore mapping as well...
+set wildignore+=*/build/*,*/bin/*,*\\build\\*,*\\bin\\*
+
 filetype off
 
 " leader button setup
