@@ -62,13 +62,23 @@ Bundle 'kchmck/vim-coffee-script'
 " }}}
 
 
+" Unite {{{
+Bundle 'Shougo/unite.vim'
+
+nmap <Leader>up :Unite -no-split file_rec<CR>
+nmap <Leader>uf :Unite -no-split file<CR>
+nmap <Leader>ud :Unite -no-split directory<CR>
+nmap <Leader>uy :Unite -no-split history/yank<CR>
+" }}}
+
+
 " Navigation {{{
 Bundle 'wikitopian/hardmode'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = '<leader>'
+let g:EasyMotion_leader_key = '<leader>e'
 
 Bundle 'scrooloose/nerdtree'
 map <f2> :NERDTreeToggle<cr>
