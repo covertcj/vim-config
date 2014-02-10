@@ -35,7 +35,17 @@ Bundle 'covertcj/Zenburn'
 Bundle 'covertcj/vim-colors-solarized'
 
 
-"Bundle 'marijnh/tern_for_vim'
+" Tabular - Text Alignment {{{
+Bundle 'godlygeek/tabular'
+
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a, :Tabularize /,\zs<CR>
+vmap <Leader>a, :Tabularize /,\zs<CR>
+" }}}
+
 
 " CoffeeScript {{{
 Bundle 'yourcelf/vim-coffee-script'
@@ -151,5 +161,25 @@ if filereadable($HOME . '/.vim/bundle/zenburn/colors/zenburn.vim')
 
     set background=light
     colorscheme solarized
+endif
+
+
+"""""""""""""""""""""
+"   ININ Settings   "
+"""""""""""""""""""""
+
+if $DEV_ENV == 'ININ'
+
+    if $TIER_ROOT_COREWEB != ''
+        for coreweb_path in split($TIER_ROOT_COREWEB)
+            let jshintrc_path = join([coreweb_path, 'pub', 'src', '.jshintrc'], '/')
+
+            if filereadable(expand(jshintrc_path))
+                let g:syntastic_javascript_conf = jshintrc_path
+                break
+            endif
+        endfor
+    endif
+
 endif
 
