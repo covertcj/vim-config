@@ -33,6 +33,8 @@ Bundle 'covertcj/jellybeans.vim'
 Bundle 'covertcj/Zenburn'
 Bundle 'covertcj/vim-colors-solarized'
 
+Bundle 'nathanaelkane/vim-indent-guides'
+
 
 " Tabular - Text Alignment {{{
 Bundle 'godlygeek/tabular'
@@ -46,18 +48,8 @@ vnoremap <Leader>a, :Tabularize /,\zs<CR>
 " }}}
 
 
-" CoffeeScript {{{
-Bundle 'yourcelf/vim-coffee-script'
-" }}}
-
-
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
-" }}}
-
-
-" Coffee Script {{{
-Bundle 'kchmck/vim-coffee-script'
 " }}}
 
 
@@ -93,13 +85,11 @@ Bundle 'tpope/vim-unimpaired'
 
 
 " Web Development {{{
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+
 Bundle 'skammer/vim-css-color'
 Bundle 'groenewege/vim-less'
-" }}}
-
-
-" FSharp {{{
-Bundle 'kongo2002/fsharp-vim'
 " }}}
 
 
