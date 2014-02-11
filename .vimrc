@@ -28,7 +28,6 @@ nnoremap @pd :!p diff %
 "    Plugins    "
 """""""""""""""""
 
-
 " Themes
 Bundle 'covertcj/jellybeans.vim'
 Bundle 'covertcj/Zenburn'
@@ -74,7 +73,7 @@ nmap <Leader>uy :Unite -no-split history/yank<CR>
 
 " Navigation {{{
 Bundle 'wikitopian/hardmode'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 Bundle 'Lokaltog/vim-easymotion'
@@ -172,10 +171,10 @@ set guioptions-=T
 " avoid setting the color scheme before BundleInstall
 if filereadable($HOME . '/.vim/bundle/zenburn/colors/zenburn.vim')
     " colorscheme zenburn
-    " colorscheme jellybeans
+    colorscheme jellybeans
 
-    set background=light
-    colorscheme solarized
+    " set background=light
+    " colorscheme solarized
 endif
 
 
