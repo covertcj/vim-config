@@ -37,12 +37,12 @@ Bundle 'covertcj/vim-colors-solarized'
 " Tabular - Text Alignment {{{
 Bundle 'godlygeek/tabular'
 
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a, :Tabularize /,\zs<CR>
-vmap <Leader>a, :Tabularize /,\zs<CR>
+nnoremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
+vnoremap <Leader>a: :Tabularize /:\zs<CR>
+vnoremap <Leader>a, :Tabularize /,\zs<CR>
+vnoremap <Leader>a, :Tabularize /,\zs<CR>
 " }}}
 
 
@@ -64,11 +64,11 @@ Bundle 'kchmck/vim-coffee-script'
 " Unite {{{
 Bundle 'Shougo/unite.vim'
 
-nmap <Leader>up :Unite -no-split file_rec<CR>
-nmap <Leader>uf :Unite -no-split file<CR>
-nmap <Leader>ud :Unite -no-split directory<CR>
-nmap <Leader>uo :Unite -no-split outline<CR>
-nmap <Leader>uy :Unite -no-split history/yank<CR>
+nnoremap <Leader>up :Unite -no-split file_rec<CR>
+nnoremap <Leader>uf :Unite -no-split file<CR>
+nnoremap <Leader>ud :Unite -no-split directory<CR>
+nnoremap <Leader>uo :Unite -no-split outline<CR>
+nnoremap <Leader>uy :Unite -no-split history/yank<CR>
 " }}}
 
 
@@ -81,8 +81,7 @@ Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
 
 Bundle 'scrooloose/nerdtree'
-map <f2> :NERDTreeToggle<cr>
-imap <f2> :NERDTreeToggle<cd>i
+nnoremap <f2> :NERDTreeToggle<cr>
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
