@@ -67,6 +67,7 @@ Bundle 'Shougo/unite.vim'
 nmap <Leader>up :Unite -no-split file_rec<CR>
 nmap <Leader>uf :Unite -no-split file<CR>
 nmap <Leader>ud :Unite -no-split directory<CR>
+nmap <Leader>uo :Unite -no-split outline<CR>
 nmap <Leader>uy :Unite -no-split history/yank<CR>
 " }}}
 
