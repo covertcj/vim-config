@@ -135,6 +135,7 @@ filetype off
 
 " leader button setup
 let mapleader = ","
+let maplocalleader = "\\"
 set timeoutlen=2500
 
 " tab settings
