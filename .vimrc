@@ -44,7 +44,7 @@ NeoBundle 'covertcj/jellybeans.vim'
 NeoBundle 'covertcj/Zenburn'
 NeoBundle 'covertcj/vim-colors-solarized'
 
-Bundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 
 " Tabular - Text Alignment {{{
@@ -83,7 +83,7 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
 
-Bundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 nnoremap <f2> :NERDTreeToggle<cr>
 
 NeoBundle 'kien/ctrlp.vim'
@@ -96,11 +96,11 @@ NeoBundle 'tpope/vim-unimpaired'
 
 
 " Web Development {{{
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
 
-Bundle 'skammer/vim-css-color'
-Bundle 'groenewege/vim-less'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'groenewege/vim-less'
 " }}}
 
 
