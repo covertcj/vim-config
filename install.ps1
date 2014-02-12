@@ -37,11 +37,11 @@ if (Test-Path($REPO_LOCAL)) {
 
 # clone/pull neobundle
 if (Test-Path($NEOBUNDLE_LOCAL)) {
-    git clone $NEOBUNDLE_REMOTE $NEOBUNDLE_LOCAL
-} else {
     pushd $NEOBUNDLE_LOCAL
     git pull origin master
     popd
+} else {
+    git clone $NEOBUNDLE_REMOTE $NEOBUNDLE_LOCAL
 }
 
 # backup if needed
