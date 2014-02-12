@@ -55,7 +55,10 @@ if [ ! -d "$REPO_LOCAL" ]; then
     msg "# Cloning vim-config repo"
 
     git clone "$REPO_REMOTE" "$REPO_LOCAL"
+
+    pushd "$REPO_LOCAL"
     git checkout "$REPO_BRANCH"
+    popd
 else
     msg "# Pulling vim-config repo"
 
