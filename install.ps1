@@ -4,15 +4,15 @@ Write-Host ("*" * 79)
 Write-Host "* Vim Configuration"
 Write-Host ("*" * 79)
 
-$VIM_DIR    = Join-Path($Env:USERPROFILE, ".vim")
-$BUNDLE_DIR = Join-Path($VIM_DIR, "bundle")
-$VIMRC      = Join-Path($VIM_DIR, "_vimrc")
+$VIM_DIR    = Join-Path -Path $Env:USERPROFILE -ChildPath ".vim"
+$BUNDLE_DIR = Join-Path -Path $VIM_DIR -ChildPath "bundle"
+$VIMRC      = Join-Path -Path $VIM_DIR -ChildPath "_vimrc"
 
 $NEOBUNDLE_REMOTE = "https://github/Shougo/neobundle.vim.git"
-$NEOBUNDLE_LOCAL  = Join-Path($BUNDLE_DIR, "neobundle.vim")
+$NEOBUNDLE_LOCAL  = Join-Path -Path $BUNDLE_DIR -ChildPath "neobundle.vim"
 
 $REPO_REMOTE = "https://github.com/covertcj/vim-config.git"
-$REPO_LOCAL  = Join-Path($Env:USERPROFILE, ".vim-config")
+$REPO_LOCAL  = Join-Path -Path $Env:USERPROFILE -ChildPath ".vim-config"
 $REPO_BRANCH = "master"
 
 if (!(Test-Path($BUNDLE_DIR))) {
@@ -50,14 +50,14 @@ if (Test-Path($VIMRC)) {
 }
 
 # link the fake vimrc for vimproc
-cmd /c mklink $VIMRC Join-Path($REPO_LOCAL, ".vimrc-vimproc")
+cmd /c mklink $VIMRC (Join-Path -Path $REPO_LOCAL -ChildPath ".vimrc-vimproc")
 
 # run NeoBundle on the fake vimrc
-& (Join-Path($NEOBUNDLE_LOCAL, "bin\neoinstall_novimproc.bat"))
+& (Join-Path -Path $NEOBUNDLE_LOCAL -ChildPath "bin\neoinstall_novimproc.bat")
 rm $VIMRC
 
 # create the real links
-cmd /c mklink $VIMRC Join-Path($REPO_LOCAL, ".vimrc")
+cmd /c mklink $VIMRC (Join-Path -Path $REPO_LOCAL -ChildPath ".vimrc")
 
 # run NeoBundle on real vimrc
-& (Join-Path($NEOBUNDLE_LOCAL, "bin\neoinstall.bat"))
+& (Join-Path -Path $NEOBUNDLE_LOCAL -ChildPath "bin\neoinstall.bat")
