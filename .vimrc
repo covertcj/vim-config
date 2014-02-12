@@ -44,6 +44,8 @@ NeoBundle 'covertcj/jellybeans.vim'
 NeoBundle 'covertcj/Zenburn'
 NeoBundle 'covertcj/vim-colors-solarized'
 
+Bundle 'nathanaelkane/vim-indent-guides'
+
 
 " Tabular - Text Alignment {{{
 NeoBundle 'godlygeek/tabular'
@@ -62,18 +64,14 @@ set runtimepath+=$GOROOT/misc/vim
 " }}}
 
 
-" Coffee Script {{{
-NeoBundle 'kchmck/vim-coffee-script'
-" }}}
-
-
 " Unite {{{
 NeoBundle 'Shougo/unite.vim'
 
-nmap <Leader>up :Unite -no-split file_rec<CR>
-nmap <Leader>uf :Unite -no-split file<CR>
-nmap <Leader>ud :Unite -no-split directory<CR>
-nmap <Leader>uy :Unite -no-split history/yank<CR>
+nnoremap <Leader>up :Unite -no-split file_rec<CR>
+nnoremap <Leader>uf :Unite -no-split file<CR>
+nnoremap <Leader>ud :Unite -no-split directory<CR>
+nnoremap <Leader>uo :Unite -no-split outline<CR>
+nnoremap <Leader>uy :Unite -no-split history/yank<CR>
 " }}}
 
 
@@ -85,9 +83,8 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
 
-NeoBundle 'scrooloose/nerdtree'
-map <f2> :NERDTreeToggle<cr>
-imap <f2> :NERDTreeToggle<cd>i
+Bundle 'scrooloose/nerdtree'
+nnoremap <f2> :NERDTreeToggle<cr>
 
 NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -99,13 +96,11 @@ NeoBundle 'tpope/vim-unimpaired'
 
 
 " Web Development {{{
-NeoBundle 'skammer/vim-css-color'
-NeoBundle 'groenewege/vim-less'
-" }}}
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
 
-
-" FSharp {{{
-NeoBundle 'kongo2002/fsharp-vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'groenewege/vim-less'
 " }}}
 
 
@@ -141,6 +136,7 @@ filetype off
 
 " leader button setup
 let mapleader = ","
+let maplocalleader = "\\"
 set timeoutlen=2500
 
 " tab settings
