@@ -8,7 +8,7 @@ $VIM_DIR    = Join-Path -Path $Env:USERPROFILE -ChildPath ".vim"
 $BUNDLE_DIR = Join-Path -Path $VIM_DIR -ChildPath "bundle"
 $VIMRC      = Join-Path -Path $VIM_DIR -ChildPath "_vimrc"
 
-$NEOBUNDLE_REMOTE = "https://github/Shougo/neobundle.vim.git"
+$NEOBUNDLE_REMOTE = "https://github.com/Shougo/neobundle.vim.git"
 $NEOBUNDLE_LOCAL  = Join-Path -Path $BUNDLE_DIR -ChildPath "neobundle.vim"
 
 $REPO_REMOTE = "https://github.com/covertcj/vim-config.git"
