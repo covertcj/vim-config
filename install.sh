@@ -83,9 +83,9 @@ else
 fi
 
 # backup pre-existing configuration
-msg ""
-msg "#########################################"
 if [ -e "$VIMRC" ]; then
+    msg ""
+    msg "#########################################"
     msg "# Backing up to $VIMRC.b"
     cp "$VIMRC" "$VIMRC.b"
     rm "$VIMRC"
