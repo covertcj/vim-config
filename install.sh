@@ -11,7 +11,7 @@ NEOBUNDLE_LOCAL="$BUNDLE_DIR/neobundle.vim"
 
 REPO_REMOTE="https://github.com/covertcj/vim-config.git"
 REPO_LOCAL="$HOME/.vimrc-config"
-REPO_BRANCH="install"
+REPO_BRANCH="master"
 
 ##### Utilities #####
 
