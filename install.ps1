@@ -53,11 +53,11 @@ if (Test-Path($VIMRC)) {
 cmd /c mklink $VIMRC Join-Path($REPO_LOCAL, ".vimrc-vimproc")
 
 # run NeoBundle on the fake vimrc
-$NEOBUNDLE_LOCAL\bin\neoinstall_novimproc.bat
+& (Join-Path($NEOBUNDLE_LOCAL, "bin\neoinstall_novimproc.bat"))
 rm $VIMRC
 
 # create the real links
 cmd /c mklink $VIMRC Join-Path($REPO_LOCAL, ".vimrc")
 
 # run NeoBundle on real vimrc
-$NEOBUNDLE_LOCAL\bin\neoinstall.bat
+& (Join-Path($NEOBUNDLE_LOCAL, "bin\neoinstall.bat"))
