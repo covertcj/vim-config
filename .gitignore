@@ -3,3 +3,5 @@
 *.swn
 *.lock
 gen/
+
+.vagrant/
