@@ -18,7 +18,9 @@ neobundle_remote = 'https://github.com/Shougo/neobundle.vim.git'
     if platform? 'windows' then
         chocolatey pkg { action :install }
     else
-        package pkg { action :install }
+        package pkg do
+            action :install
+        end
     end
 end
 
@@ -47,20 +49,20 @@ end
 
 neobundle_bindir = File.join(neobundle_dir, 'bin')
 if platform? 'windows' then
+    neobundle_installer = File.join(neobundle_bindir, 'neoinstall')
+
+    powershell_script neobundle_installer do
+        code    <<-EOH
+            #{neobundle_installer}
+            EOH
+    end
+else
     neobundle_installer = File.join(neobundle_bindir, 'neoinstall_novimproc.bat')
 
     bash neobundle_installer do
         user    username
         code    <<-EOH
             bash #{neobundle_installer}"
-            EOH
-    end
-else
-    neobundle_installer = File.join(neobundle_bindir, 'neoinstall')
-
-    powershell_script neobundle_installer do
-        code    <<-EOH
-            #{neobundle_installer}
             EOH
     end
 end
