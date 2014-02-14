@@ -1,3 +1,5 @@
+include_recipe "chocolatey" if platform? 'windows'
+
 username  = node[:dotfiles][:user]
 groupname = node[:dotfiles][:group]
 home_dir  = node[:dotfiles][:home]
@@ -12,24 +14,20 @@ vimconfig_remote = 'https://github.com/covertcj/vim-config.git'
 neobundle_dir    = File.join(bundle_dir, 'neobundle.vim')
 neobundle_remote = 'https://github.com/Shougo/neobundle.vim.git'
 
-package 'git' do
-    action  :install
-end
-
-package 'vim' do
-    action  :install
-end
-
-directory vim_dir do
-    owner   username
-    mode    '0755'
-    action  :create
+%w{git vim}.each do |pkg|
+    if platform? 'windows' then
+        chocolatey pkg { action :install }
+    else
+        package pkg { action :install }
+    end
 end
 
 directory bundle_dir do
-    owner   username
-    mode    '0755'
-    action  :create
+    action      :create
+
+    recursive   true
+    owner       username
+    mode        '0755'
 end
 
 git vimconfig_dir do
@@ -47,8 +45,22 @@ cookbook_file vimrc do
     owner   username
 end
 
-neobundle_installer = File.join(neobundle_dir, 'bin', 'neoinstall')
-bash neobundle_installer do
-    user    username
-    code    "bash #{neobundle_installer}"
+neobundle_bindir = File.join(neobundle_dir, 'bin')
+if platform? 'windows' then
+    neobundle_installer = File.join(neobundle_bindir, 'neoinstall_novimproc.bat')
+
+    bash neobundle_installer do
+        user    username
+        code    <<-EOH
+            bash #{neobundle_installer}"
+            EOH
+    end
+else
+    neobundle_installer = File.join(neobundle_bindir, 'neoinstall')
+
+    powershell_script neobundle_installer do
+        code    <<-EOH
+            #{neobundle_installer}
+            EOH
+    end
 end
