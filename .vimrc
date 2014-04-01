@@ -1,10 +1,10 @@
 " Load vundle
-set rtp+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
 " Sensible.vim
-NeoBundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-sensible'
 runtime! plugin/sensible.vim
 
 
@@ -28,27 +28,14 @@ nnoremap @pd :!p diff %
 "    Plugins    "
 """""""""""""""""
 
-" Vimproc {{{
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-" }}}
-
 " Themes
-NeoBundle 'covertcj/jellybeans.vim'
-NeoBundle 'covertcj/Zenburn'
-NeoBundle 'covertcj/vim-colors-solarized'
-
-NeoBundle 'nathanaelkane/vim-indent-guides'
+Bundle 'covertcj/jellybeans.vim'
+Bundle 'covertcj/Zenburn'
+Bundle 'covertcj/vim-colors-solarized'
 
 
 " Tabular - Text Alignment {{{
-NeoBundle 'godlygeek/tabular'
+Bundle 'godlygeek/tabular'
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -59,53 +46,65 @@ vmap <Leader>a, :Tabularize /,\zs<CR>
 " }}}
 
 
+" CoffeeScript {{{
+Bundle 'yourcelf/vim-coffee-script'
+" }}}
+
+
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
 " }}}
 
 
-" Unite {{{
-NeoBundle 'Shougo/unite.vim'
+" Coffee Script {{{
+Bundle 'kchmck/vim-coffee-script'
+" }}}
 
-nnoremap <Leader>up :Unite -no-split file_rec<CR>
-nnoremap <Leader>uf :Unite -no-split file<CR>
-nnoremap <Leader>ud :Unite -no-split directory<CR>
-nnoremap <Leader>uo :Unite -no-split outline<CR>
-nnoremap <Leader>uy :Unite -no-split history/yank<CR>
+
+" Unite {{{
+Bundle 'Shougo/unite.vim'
+
+nmap <Leader>up :Unite -no-split file_rec<CR>
+nmap <Leader>uf :Unite -no-split file<CR>
+nmap <Leader>ud :Unite -no-split directory<CR>
+nmap <Leader>uy :Unite -no-split history/yank<CR>
 " }}}
 
 
 " Navigation {{{
-NeoBundle 'wikitopian/hardmode'
+Bundle 'wikitopian/hardmode'
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
-NeoBundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
 
-NeoBundle 'scrooloose/nerdtree'
-nnoremap <f2> :NERDTreeToggle<cr>
+Bundle 'scrooloose/nerdtree'
+map <f2> :NERDTreeToggle<cr>
+imap <f2> :NERDTreeToggle<cd>i
 
-NeoBundle 'kien/ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|bzr)$'
 
-NeoBundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-unimpaired'
 " }}}
 
 
 " Web Development {{{
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
+Bundle 'skammer/vim-css-color'
+Bundle 'groenewege/vim-less'
+" }}}
 
-NeoBundle 'skammer/vim-css-color'
-NeoBundle 'groenewege/vim-less'
+
+" FSharp {{{
+Bundle 'kongo2002/fsharp-vim'
 " }}}
 
 
 " Windows Scripting {{{
-NeoBundle 'PProvost/vim-ps1'
+Bundle 'PProvost/vim-ps1'
 " }}}
 
 
@@ -113,14 +112,14 @@ NeoBundle 'PProvost/vim-ps1'
 au BufNewFile,BufRead wscript* set filetype=python
 " }}}
 
-NeoBundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 "map <F5> :lprev<CR>
 "map <F4> :lnext<CR>
 let g:syntastic_always_populate_loc_list = 1
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-repeat'
+Bundle 'mattn/emmet-vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-repeat'
 
 
 """"""""""""""""""
@@ -136,7 +135,6 @@ filetype off
 
 " leader button setup
 let mapleader = ","
-let maplocalleader = "\\"
 set timeoutlen=2500
 
 " tab settings
@@ -199,4 +197,3 @@ if $DEV_ENV == 'ININ'
 
 endif
 
-NeoBundleCheck

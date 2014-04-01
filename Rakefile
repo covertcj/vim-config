@@ -8,7 +8,7 @@ vimfiles_target = "#{home}/#{vimfiles}"
 vimrc_prefix = ((Rake::Win32.windows? && '_') || '.')
 vimrc = "#{vimrc_prefix}vimrc"
 
-neobundle_target = "#{vimfiles_target}/bundle/neobundle.vim"
+vundle_target = "#{vimfiles_target}/bundle/vundle"
 
 vimrc_target = "#{home}/#{vimrc}"
 vimrc_source = '.vimrc'
@@ -18,14 +18,14 @@ file vimrc_target => [vimrc_source] do
 end
 
 desc 'Installs the vundle plugin from it\'s git repository.'
-file neobundle_target do
-    `git clone https://github.com/Shougo/neobundle.vim.git "#{neobundle_target}"`
+file vundle_target do
+    `git clone https://github.com/gmarik/vundle.git "#{vundle_target}"`
 end
 
 desc 'Installs vim plugins using vundle.'
-task :vim_bundle_install => [vimrc_target, neobundle_target] do
+task :vim_bundle_install => [vimrc_target, vundle_target] do
     puts 'Running :BundleInstall...'
-    sh "#{neobundle_target}/bin/neoinstall"
+    `vim +BundleInstall +qall`
 end
 
 def system_is_dirty?(files)
@@ -65,6 +65,6 @@ task :clean do
     end
 end
 
-task :vim_config => [:clean, vimrc_target, neobundle_target, :vim_bundle_install]
+task :vim_config => [:clean, vimrc_target, vundle_target, :vim_bundle_install]
 task :default => [:vim_config]
 
