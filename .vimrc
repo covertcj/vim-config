@@ -33,6 +33,7 @@ Bundle 'covertcj/jellybeans.vim'
 Bundle 'covertcj/Zenburn'
 Bundle 'covertcj/vim-colors-solarized'
 
+Bundle 'rmartinho/vim-cpp11'
 
 " Tabular - Text Alignment {{{
 Bundle 'godlygeek/tabular'
@@ -46,28 +47,8 @@ vmap <Leader>a, :Tabularize /,\zs<CR>
 " }}}
 
 
-" CoffeeScript {{{
-Bundle 'yourcelf/vim-coffee-script'
-" }}}
-
-
 " Go {{{
 set runtimepath+=$GOROOT/misc/vim
-" }}}
-
-
-" Coffee Script {{{
-Bundle 'kchmck/vim-coffee-script'
-" }}}
-
-
-" Unite {{{
-Bundle 'Shougo/unite.vim'
-
-nmap <Leader>up :Unite -no-split file_rec<CR>
-nmap <Leader>uf :Unite -no-split file<CR>
-nmap <Leader>ud :Unite -no-split directory<CR>
-nmap <Leader>uy :Unite -no-split history/yank<CR>
 " }}}
 
 
@@ -95,11 +76,6 @@ Bundle 'tpope/vim-unimpaired'
 " Web Development {{{
 Bundle 'skammer/vim-css-color'
 Bundle 'groenewege/vim-less'
-" }}}
-
-
-" FSharp {{{
-Bundle 'kongo2002/fsharp-vim'
 " }}}
 
 
