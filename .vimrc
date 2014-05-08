@@ -34,6 +34,9 @@ Bundle 'covertcj/Zenburn'
 Bundle 'covertcj/vim-colors-solarized'
 
 
+Bundle 'vim-scripts/glsl.vim'
+
+
 " Tabular - Text Alignment {{{
 Bundle 'godlygeek/tabular'
 
@@ -43,6 +46,11 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a, :Tabularize /,\zs<CR>
 vmap <Leader>a, :Tabularize /,\zs<CR>
+" }}}
+
+
+" Elixir {{{
+Bundle 'elixir-lang/vim-elixir'
 " }}}
 
 
