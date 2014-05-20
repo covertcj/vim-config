@@ -119,6 +119,7 @@ Bundle 'tpope/vim-repeat'
 " this was added for ctrl-p support, if it becomes annoying, ctrl-p supports
 " a custom ignore mapping as well...
 set wildignore+=*/build/*,*/bin/*,*\\build\\*,*\\bin\\*
+set wildignore+=*/node_modules/*,*\\node_modules\\*
 
 filetype off
 
