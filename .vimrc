@@ -65,6 +65,14 @@ set runtimepath+=$GOROOT/misc/vim
 " }}}
 
 
+" Lisp-y Languages {{{
+Bundle "kien/rainbow_parentheses.vim"
+nmap <Leader>pt :RainbowParenthesesToggle<CR>
+au BufEnter *.scm RainbowParenthesesActivate
+au BufEnter *.scm RainbowParenthesesLoadRound
+" }}}
+
+
 " Navigation {{{
 Bundle 'wikitopian/hardmode'
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
