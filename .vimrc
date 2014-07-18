@@ -38,6 +38,11 @@ Bundle 'rmartinho/vim-cpp11'
 Bundle 'vim-scripts/glsl.vim'
 
 
+" Rust {{{
+Bundle 'wting/rust.vim'
+" }}}
+
+
 " Tabular - Text Alignment {{{
 Bundle 'godlygeek/tabular'
 
