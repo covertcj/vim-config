@@ -38,6 +38,11 @@ Bundle 'rmartinho/vim-cpp11'
 Bundle 'vim-scripts/glsl.vim'
 
 
+" Haxe {{{
+Bundle 'jdonaldson/vaxe'
+" }}}
+
+
 " Rust {{{
 Bundle 'wting/rust.vim'
 " }}}
