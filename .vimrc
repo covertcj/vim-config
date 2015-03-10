@@ -120,9 +120,17 @@ au BufNewFile,BufRead wscript* set filetype=python
 " }}}
 
 Bundle 'scrooloose/syntastic'
-"map <F5> :lprev<CR>
-"map <F4> :lnext<CR>
+map <F5> :lprev<CR>
+map <F4> :lnext<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-sleuth'
@@ -197,7 +205,11 @@ if $DEV_ENV == 'ININ'
             let jshintrc_path = join([coreweb_path, 'pub', 'src', '.jshintrc'], '/')
 
             if filereadable(expand(jshintrc_path))
-                let g:syntastic_javascript_conf = jshintrc_path
+                if exists('g:javascript_jshint_args')
+                    let g:syntastic_javascript_jshint_args = g:syntastic_javascript_jshint_args . ' --config "' . jshintrc_path . '"'
+                else
+                    let g:syntastic_javascript_jshint_args = '--config "' . jshintrc_path . '"'
+                endif
                 break
             endif
         endfor
