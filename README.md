@@ -1,8 +1,7 @@
 My Vim Config
 =============
 
-My vim configuration files, with an automated install
-process.
+My vim configuration files, with an automated install process.
 
 
 Install
@@ -10,9 +9,9 @@ Install
 
 Install dependencies:
 
-`gem install os`
+`bundle install`
 
 Copy the configuration to your local user:
 
-`rake install`
+`bundle exec rake`
 

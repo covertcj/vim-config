@@ -1,3 +1,7 @@
+/.bundle/bin/
+/.bundle/gems/
+
 *.swp
 *.lock
 gen/
+
