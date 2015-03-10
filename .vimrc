@@ -18,6 +18,11 @@ set statusline=%t       "tail of the filename
 set statusline+=%r      "read only flag
 set statusline+=%m      "modified flag
 
+" following 3 are from the syntastic recomendations
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 set statusline+=%=      "left/right separator
 
 set statusline+=%c,     "cursor column
@@ -133,9 +138,6 @@ au BufNewFile,BufRead wscript* set filetype=python
 Bundle 'scrooloose/syntastic'
 map <F5> :lprev<CR>
 map <F4> :lnext<CR>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
