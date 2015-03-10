@@ -1,4 +1,4 @@
-" Load vundle
+"Load vundle
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -12,6 +12,17 @@ runtime! plugin/sensible.vim
 if has('win32') || has('win64')
     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
+
+
+set statusline=%t       "tail of the filename
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+
+set statusline+=%=      "left/right separator
+
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
 
 """"""""""""""""""
