@@ -29,6 +29,25 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
+:nnoremap l ,
+:nnoremap h <nop>
+
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+
+:iabbrev @@  covertops5@gmail.com
+:iabbrev @@i chris.covert@inin.com
+
+"" disallow weak navigation
+:nnoremap <Left> <nop>
+:nnoremap <Right> <nop>
+:nnoremap <Up> <nop>
+:nnoremap <Down> <nop>
+:inoremap <Left> <nop>
+:inoremap <Right> <nop>
+:inoremap <Up> <nop>
+:inoremap <Down> <nop>
+
 
 """"""""""""""""""
 "    Perforce    "
@@ -76,11 +95,6 @@ vmap <Leader>a, :Tabularize /,\zs<CR>
 " }}}
 
 
-" Elixir {{{
-Bundle 'elixir-lang/vim-elixir'
-" }}}
-
-
 " CoffeeScript {{{
 Bundle 'yourcelf/vim-coffee-script'
 " }}}
@@ -100,10 +114,6 @@ au BufEnter *.scm RainbowParenthesesLoadRound
 
 
 " Navigation {{{
-Bundle 'wikitopian/hardmode'
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
 
