@@ -7,7 +7,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 runtime! plugin/sensible.vim
 
-
 " force windows to use the .vim directory instead of vimfiles
 if has('win32') || has('win64')
     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
@@ -153,6 +152,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_compiler_options = '-std=c++0x'
+
 
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
