@@ -115,6 +115,9 @@ au BufEnter *.scm RainbowParenthesesLoadRound
 " Navigation {{{
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<leader>e'
+nmap <leader>w <Plug>(easymotion-w)
+nmap <leader>f <Plug>(easymotion-f)
+nmap <leader>F <Plug>(easymotion-F)
 
 Bundle 'scrooloose/nerdtree'
 map <f2> :NERDTreeToggle<cr>
