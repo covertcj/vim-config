@@ -28,24 +28,14 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-:nnoremap l ,
-:nnoremap h <nop>
+nnoremap l ,
+nnoremap h <nop>
 
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
-:iabbrev @@  covertops5@gmail.com
-:iabbrev @@i chris.covert@inin.com
-
-"" disallow weak navigation
-:nnoremap <Left> <nop>
-:nnoremap <Right> <nop>
-:nnoremap <Up> <nop>
-:nnoremap <Down> <nop>
-:inoremap <Left> <nop>
-:inoremap <Right> <nop>
-:inoremap <Up> <nop>
-:inoremap <Down> <nop>
+iabbrev @@  covertops5@gmail.com
+iabbrev @@i chris.covert@inin.com
 
 
 """"""""""""""""""
@@ -120,8 +110,7 @@ nmap <leader>f <Plug>(easymotion-f)
 nmap <leader>F <Plug>(easymotion-F)
 
 Bundle 'scrooloose/nerdtree'
-map <f2> :NERDTreeToggle<cr>
-imap <f2> :NERDTreeToggle<cd>i
+map <F2> :NERDTreeToggle<CR>
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -148,8 +137,10 @@ au BufNewFile,BufRead wscript* set filetype=python
 " }}}
 
 Bundle 'scrooloose/syntastic'
-map <F5> :lprev<CR>
-map <F4> :lnext<CR>
+noremap <F5> :lprev<CR>
+noremap <F4> :lnext<CR>
+nnoremap <leader>st :SyntasticToggleMode<CR>
+nnoremap <leader>sc :SyntasticCheck<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
