@@ -62,11 +62,11 @@ Bundle 'rmartinho/vim-cpp11'
 Bundle 'vim-scripts/glsl.vim'
 
 
-" Haxe {{{
-Bundle 'jdonaldson/vaxe'
+" TypeScript {{{
+Bundle 'leafgarland/typescript-vim'
 " }}}
 
-
+"
 " Rust {{{
 Bundle 'wting/rust.vim'
 " }}}
@@ -81,16 +81,6 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a, :Tabularize /,\zs<CR>
 vmap <Leader>a, :Tabularize /,\zs<CR>
-" }}}
-
-
-" CoffeeScript {{{
-Bundle 'yourcelf/vim-coffee-script'
-" }}}
-
-
-" Go {{{
-set runtimepath+=$GOROOT/misc/vim
 " }}}
 
 
@@ -219,22 +209,18 @@ endif
 "   ININ Settings   "
 """""""""""""""""""""
 
-if $DEV_ENV == 'ININ'
+if $TIER_ROOT_COREWEB != ''
+    for coreweb_path in split($TIER_ROOT_COREWEB)
+        let jshintrc_path = join([coreweb_path, 'pub', 'src', '.jshintrc'], '/')
 
-    if $TIER_ROOT_COREWEB != ''
-        for coreweb_path in split($TIER_ROOT_COREWEB)
-            let jshintrc_path = join([coreweb_path, 'pub', 'src', '.jshintrc'], '/')
-
-            if filereadable(expand(jshintrc_path))
-                if exists('g:javascript_jshint_args')
-                    let g:syntastic_javascript_jshint_args = g:syntastic_javascript_jshint_args . ' --config "' . jshintrc_path . '"'
-                else
-                    let g:syntastic_javascript_jshint_args = '--config "' . jshintrc_path . '"'
-                endif
-                break
+        if filereadable(expand(jshintrc_path))
+            if exists('g:javascript_jshint_args')
+                let g:syntastic_javascript_jshint_args = g:syntastic_javascript_jshint_args . ' --config "' . jshintrc_path . '"'
+            else
+                let g:syntastic_javascript_jshint_args = '--config "' . jshintrc_path . '"'
             endif
-        endfor
-    endif
-
+            break
+        endif
+    endfor
 endif
 
